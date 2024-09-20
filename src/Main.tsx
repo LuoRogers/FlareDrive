@@ -226,6 +226,15 @@ function Main({
           await copyPaste(multiSelected[0], cwd + newName, true);
           fetchFiles();
         }}
+
+        onShare={async () => {
+          // 获取文件路径
+          if (multiSelected?.length !== 1) return;
+          const url = `${encodeKey(multiSelected[0])}`;
+          // 复制到剪贴板
+          navigator.clipboard.writeText(url);
+        }}
+
         onDelete={async () => {
           if (!multiSelected?.length) return;
           const filenames = multiSelected
