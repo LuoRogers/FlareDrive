@@ -12,12 +12,14 @@ function MultiSelectToolbar({
   onClose,
   onDownload,
   onRename,
+  onShare,
   onDelete,
 }: {
   multiSelected: string[] | null;
   onClose: () => void;
   onDownload: () => void;
   onRename: () => void;
+  onShare: () => void;
   onDelete: () => void;
 }) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -69,7 +71,7 @@ function MultiSelectToolbar({
             {multiSelected.length === 1 && (
               <React.Fragment>
                 <MenuItem onClick={onRename}>Rename</MenuItem>
-                <MenuItem>Share</MenuItem>
+                <MenuItem onClick={onShare}>Share</MenuItem>
               </React.Fragment>
             )}
           </Menu>
