@@ -230,9 +230,11 @@ function Main({
         onShare={async () => {
           // 获取文件路径
           if (multiSelected?.length !== 1) return;
-          const url = `${encodeKey(multiSelected[0])}`;
+          const url = `https://oss.moemc.eu.org/${encodeKey(multiSelected[0])}`;
           // 复制到剪贴板
           navigator.clipboard.writeText(url);
+          // 提示复制成功
+          alert("Copied to clipboard: " + url);
         }}
 
         onDelete={async () => {
